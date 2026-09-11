@@ -1,6 +1,15 @@
 import app from "./app.js"
 
+import database from "./config/database.js"
 
-app.listen(3000 , () => {
-    console.log("Servidor ouvindo na porta 3000")
+database.db
+.sync({force: false})
+.then((_)=>{
+    app.listen(3000, ()=>{
+        console.log("servidor rodando porta 3000")
+    })
+})
+
+.catch((e)=>{
+    console.log(e)
 })
