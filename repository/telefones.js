@@ -1,18 +1,18 @@
 
-import cliente from "../model/cliente.js"
+import listatelefone from "../model/listatelefones.js"
 
 
-class ClienteRepository {
+class ListatelefoneRepository {
 
     async Find() {
 
-        const todo = await cliente.findAll()
+        const todo = await listatelefone.findAll()
         return todo
 
     }
 
  async   Detalhes(id) {
-    const detail = await cliente.findByPk(id)
+    const detail = await listatelefone.findByPk(id)
 
  return detail
    
@@ -21,7 +21,7 @@ class ClienteRepository {
 
 async  Criar(nome,telefone) {
 
-    const criarcliente  = await cliente.create({nome , telefone})
+    const criarcliente  = await listatelefone.create({nome , telefone})
 
     return criarcliente
 
@@ -31,7 +31,7 @@ async  Criar(nome,telefone) {
 
    async Update(id,nome,telefone) {
 
-        const update = await cliente.findByPk(id)
+        const update = await listatelefone.findByPk(id)
 
         if(!update){
             throw new Error("Cliente não encontrado");
@@ -51,7 +51,7 @@ return update
    async Deletar(id) {
 
     
-const deletcliente = await cliente.findByPk(id)
+const deletcliente = await listatelefone.findByPk(id)
 
 if(!deletcliente){
     throw new Error("Cliente não encontrado");    
@@ -65,4 +65,4 @@ if(!deletcliente){
 }
 
 
-export default new ClienteRepository()
+export default new ListatelefoneRepository()

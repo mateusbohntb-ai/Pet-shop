@@ -1,13 +1,13 @@
 
-import ClienteService from "../service/cliente.js"
+import TelefoneService from "../service/telefone.js"
 
-class ClienteController {
+class TelefoneController {
 
     async Buscar(_, res) {
 
         try {
 
-            const cliente = await ClienteService.Buscar()
+            const cliente = await TelefoneService.Buscar()
 
             res.status(200).send({
 
@@ -34,7 +34,7 @@ class ClienteController {
         try {
 
             const id = req.params.id
-            const cliente = await ClienteService.Detalhe(id)
+            const cliente = await TelefoneService.Detalhe(id)
 
             await res.status(200).send({
                 mensagem: "Resultado da sua pesquisa logo abaixo",
@@ -59,7 +59,7 @@ class ClienteController {
 
             const { nome, telefone } = req.body
 
-            await  ClienteService.Criar(nome, telefone)
+            await  TelefoneService.Criar(nome, telefone)
 
             res.status(201).send({
                 mensagem: "Cadastrado com sucesso"
@@ -81,7 +81,7 @@ class ClienteController {
             const { nome, telefone } = req.body
             const id = Number(req.params.id)
 
-            await ClienteService.Alterar(id, nome, telefone)
+            await TelefoneService.Alterar(id, nome, telefone)
 
             res.status(201).send({
                 mensagem: " Cliente alterado  com sucesso"
@@ -100,7 +100,7 @@ class ClienteController {
 
             const id = req.params.id
 
-            await ClienteService.Deletar(id)
+            await TelefoneService.Deletar(id)
 
             res.status(204).send({
                 mensagem: "Deletado"
@@ -115,4 +115,4 @@ class ClienteController {
 }
 
 
-export default new ClienteController()
+export default new TelefoneController()

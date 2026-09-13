@@ -1,13 +1,13 @@
 
 
-import cliente from "../repository/cliente.js"
+import ListatelefoneRepository from "../repository/telefones.js"
 
 
 
-class ClienteService {
+class TelefoneService {
 
     Buscar() {
-        return cliente.Find()
+        return ListatelefoneRepository.Find()
     }
 
 
@@ -17,7 +17,7 @@ class ClienteService {
              throw new Error("Favor informar o ID")
          }
        
-         const usuario = await cliente.Detalhes(id)
+         const usuario = await ListatelefoneRepository.Detalhes(id)
        
          if (!usuario) {
              throw new Error(`ID ${id} do carro não encontrado`)
@@ -32,7 +32,7 @@ class ClienteService {
        ''
            }
        
- const usuario = await cliente.Criar(nome,telefone)
+ const usuario = await ListatelefoneRepository.Criar(nome,telefone)
         return {usuario}
     }
 
@@ -43,7 +43,7 @@ class ClienteService {
         }
       
 
-      const clientealterado = await cliente.Update(id,nome,telefone)
+      const clientealterado = await ListatelefoneRepository.Update(id,nome,telefone)
       
       return clientealterado
     }
@@ -55,7 +55,7 @@ class ClienteService {
                 throw new Error("Favor informar todos os dados ")
             }
        
-            const Delete = await cliente.Deletar(id)
+            const Delete = await ListatelefoneRepository.Deletar(id)
        
             return Delete
     }
@@ -63,4 +63,4 @@ class ClienteService {
 }
 
 
-export default new ClienteService
+export default new TelefoneService

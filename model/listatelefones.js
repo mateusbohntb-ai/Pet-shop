@@ -1,10 +1,10 @@
 import database from "../config/database.js"
 
 
-class cliente{
+class listatelefone{
 
     constructor(){
-this.model = database.db.define("clientes",{
+this.model = database.db.define("telefones",{
     id:{
         type:database.db.Sequelize.INTEGER,
         primaryKey:true,
@@ -22,4 +22,4 @@ this.model = database.db.define("clientes",{
 
 }
 
-export default new cliente().model
+export default new listatelefone().model
